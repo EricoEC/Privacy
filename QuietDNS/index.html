@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuietDNS 隐私政策</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; max-width: 820px; margin: 40px auto; padding: 20px; line-height: 1.75; color: #333; }
+        h1 { color: #000; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        h2 { color: #111; margin-top: 30px; }
+        .date { color: #666; font-size: 0.9em; }
+        .notice { background: #f5f7fa; border-radius: 12px; padding: 14px 16px; }
+        .footer { margin-top: 40px; font-size: 0.8em; color: #999; border-top: 1px solid #eee; padding-top: 20px; }
+        a { color: #1769e0; }
+    </style>
+</head>
+<body>
+    <h1>QuietDNS 隐私政策</h1>
+    <p class="date">生效日期：2026年9月29日</p>
+
+    <p>QuietDNS 由 <strong>Erico</strong> 独立开发和维护。本政策说明 QuietDNS 如何处理 DNS 查询、规则订阅、活动记录和用户主动提交的反馈。</p>
+
+    <div class="notice"><strong>核心说明：</strong>QuietDNS 不要求注册账号，不在开发者服务器上建立用户活动档案，不集成广告、分析或追踪 SDK。规则匹配、活动记录和统计默认在设备本地完成。</div>
+
+    <h2>1. DNS 查询</h2>
+    <p>启用本地防护后，QuietDNS 使用 Apple Network Extension 的 Packet Tunnel Provider 作为设备内的 DNS 处理接口。域名会先在本机与已启用的黑名单、白名单和订阅规则进行匹配。</p>
+    <ul>
+        <li>命中拦截规则的域名会在本机返回拦截响应，不再向上游 DNS 请求解析。</li>
+        <li>白名单域名会优先放行。</li>
+        <li>未命中规则的域名会发送到用户选择的上游 DNS，例如 AliDNS、DNSPod、Cloudflare 或 AdGuard DNS。</li>
+    </ul>
+    <p>上游 DNS 服务商可能按照其自身隐私政策处理 DNS 请求。QuietDNS 不运营这些上游 DNS 服务，也不控制其保存期限或处理方式。</p>
+
+    <h2>2. 本地活动记录与统计</h2>
+    <p>用户开启“保留本地查询记录”后，QuietDNS 会在设备的 App Group 容器中保存 DNS 活动记录，包括域名、时间、查询类型、放行/拦截/失败结果、规则来源和本地统计数据。</p>
+    <p>这些内容用于显示“活动”和“防护”页面，不会自动上传到 Erico 的服务器。用户可以在应用内清除活动记录或关闭本地记录功能。</p>
+
+    <h2>3. 规则订阅与网络请求</h2>
+    <p>QuietDNS 可以从 AdGuard Hostlists Registry 和用户添加的 HTTPS 地址读取规则。应用会下载规则文本并在本机编译为域名索引。应用也会从配置的 GitHub 地址读取版本信息，用于检查更新。</p>
+    <p>这些请求可能包含设备的正常网络连接信息、请求时间和标准 HTTP 请求头。QuietDNS 不会在这些请求中附加姓名、邮箱、账号或本地 DNS 活动记录。</p>
+    <p>用户手动添加的第三方规则地址由用户自行选择，相关服务商的隐私处理以其自身政策为准。</p>
+
+    <h2>4. 反馈与联系方式</h2>
+    <p>用户可以通过应用内反馈入口或以下页面主动提交问题和建议：</p>
+    <ul>
+        <li>反馈邮箱：<a href="mailto:report@epoxn.com">report@epoxn.com</a></li>
+        <li>反馈页面：<a href="https://feedback.epoxn.com/?p=quietdns">https://feedback.epoxn.com/?p=quietdns</a></li>
+    </ul>
+    <p>反馈内容仅用于回复用户和改进 QuietDNS。请勿在反馈中提交不必要的个人信息。</p>
+
+    <h2>5. 权限与网络扩展</h2>
+    <p>启用防护时，系统会请求用户批准 QuietDNS 的本地 VPN 配置。这项能力仅用于处理 DNS 查询。QuietDNS 不提供远程 VPN 节点，不改变公网 IP，不解密 HTTPS，不安装根证书，也不读取其他应用的页面内容。</p>
+
+    <h2>6. 儿童隐私</h2>
+    <p>QuietDNS 不要求账号或收集儿童个人信息。应用是一款本地网络工具，使用时仍应遵守所在地区和设备管理者的网络使用规则。</p>
+
+    <h2>7. 政策更新</h2>
+    <p>如果 QuietDNS 的数据处理方式发生变化，我们会在本页面更新政策内容和生效日期。</p>
+
+    <div class="footer">Copyright © 2026 Erico. All Rights Reserved.</div>
+</body>
+</html>
